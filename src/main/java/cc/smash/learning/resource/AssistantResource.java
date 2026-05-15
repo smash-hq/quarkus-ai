@@ -40,14 +40,13 @@ public class AssistantResource {
         if (userRequestText == null || userRequestText.isEmpty()) {
             return new TravelDTO();
         }
-        log.info("用户输入：{}", userRequestText);
+        log.info("用户输入：\n{}", userRequestText);
         String aiReply = travelAgent.chat(userRequestText);
-        log.info("AI 输出：{}", aiReply);
         TravelDTO plan = travelAgent.extract(aiReply);
 
         try {
             String json = mapper.writeValueAsString(plan);
-            log.info("AI 输出：{}", json);
+            log.info("AI 回复结构化输出：\n{}", json);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

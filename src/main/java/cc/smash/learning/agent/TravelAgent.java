@@ -1,16 +1,17 @@
 package cc.smash.learning.agent;
 
 import cc.smash.learning.dto.TravelDTO;
+import cc.smash.learning.tools.Weather;
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import io.quarkiverse.langchain4j.RegisterAiService;
 
 
-@RegisterAiService
+@RegisterAiService(tools = Weather.class)
 public interface TravelAgent {
 
     // 能力一：负责陪用户聊天、写攻略
-    @SystemMessage("你是一个热情、专业的旅游规划师老驴，请根据用户的提问提供详细、生动的路线和建议，以及提供住宿、行车信息。")
+    @SystemMessage("你是一个热情、专业的旅游规划师，请根据用户的旅游想法，提供出发地与目的地，提供旅游建议，美食，以及提供住宿、行车信息，总共花费。")
     String chat(String userQuestion);
 
     // 能力二：负责根据上面生成的回答，把数据抠出来变成结构体
