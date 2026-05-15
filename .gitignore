@@ -45,3 +45,6 @@ application.properties
 
 # logs
 *.log
+
+# target
+/target/
