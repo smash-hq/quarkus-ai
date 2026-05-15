@@ -1,0 +1,6 @@
+cc\smash\learning\dto\TravelDTO.class
+cc\smash\learning\agent\MyAssistant.class
+cc\smash\learning\resource\GreetingResource.class
+cc\smash\learning\agent\TravelAgent.class
+cc\smash\learning\resource\AssistantResource.class
+cc\smash\learning\utils\JsonObjectMapper.class
